@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title> Comparing Arrays</title>
+    <h1>GUESS THE TEAM</h1>
+    <style>
+#point{
+  font-size: 30px;
+  background-color: green;
+  color: white;
+}
+body{
+  background-image: url("feild2.jpg");
+}
+#photo{
+  height:50px;
+  width: 150px;
+  font-size: 25px;
+}
+h1{
+  font-size: 70px;
+  color:white;
+  background-color: green;
+}
+#box{
+ width: 200px;
+ height: 50px;
+ background-color: black;
+ color: white;
+ font-size: 25px;
+
+}
+    </style>
+    <script>
+    var i = 0;
+    var j = 0;
+    var pics=["<img src= 'browns.png' height= '200px' width = '300px'>","<img src= 'Jags.jpg'height= '200px' width = '300px'>","<img src= 'patriots.jpg'height= '200px' width = '300px'>", "<img src= 'ravens.jpg' height='200px' width='300px'>", "<img src = 'steelers.jpg' height='200px' width='300px'>"];
+    var guesses= [];
+    var realAnswers=["Browns","Jaguars","Patriots","Ravens","Steelers"];
+    var score= 0;
+
+ function start()
+ {
+   document.getElementById('imgOut').innerHTML=pics[0];
+
+ }
+      function comp()
+      {
+        if (i < 4)
+        {
+        document.getElementById('imgOut').innerHTML=pics[i+1];
+       }
+        guesses[i] = document.getElementById('box').value;
+          if(guesses[i] == realAnswers[i])
+          {
+            score = score + 1;
+            i++;
+            alert('correct');
+            document.getElementById('point').innerHTML=score;
+         }
+         else if (guesses[i] != realAnswers[i])
+         {
+           alert("you missed it");
+          i++;
+         }
+
+           document.getElementById('point').innerHTML = "Your score is " + score;
+        }
+      </script>
+  </head>
+  <body>
+    <center><input id = "photo" type = "button" value = "Click to start" onclick="start()"></center>
+    <br>
+      <center><input id = "box" type= "text" value="Answer"></center>
+      <br>
+    <center><input id = "comp" type= "button" value = "Click to check" onclick="comp()"></center>
+    <br>
+    <center><span id = "imgOut"> </span></center>
+    <br>
+    <center><span id = "point"></span></center>
+  </body>
+</html>
